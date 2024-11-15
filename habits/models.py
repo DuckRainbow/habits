@@ -53,7 +53,7 @@ class Habit(models.Model):
     regularity = models.CharField(
         max_length=50,
         verbose_name='Периодичность(1 раз в __ дней)',
-        default='Ежедневно',
+        default='1',
         null=True,
     )
 
@@ -65,10 +65,11 @@ class Habit(models.Model):
         help_text='Укажите вознаграждение(не указывать, если указали связанную привычку)',
     )
 
-    time_to_complete = models.DateTimeField(
+    time_to_complete = models.IntegerField(
         verbose_name='Время на выполнение',
         blank=True,
-        null=True
+        null=True,
+        help_text='Укажите количество секунд на выполнение'
     )
 
     is_public = models.BooleanField(
