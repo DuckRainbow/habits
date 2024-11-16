@@ -12,3 +12,4 @@ eventlet
 redis
 django-celery-beat
 django-cors-headers
+drf_yasg
