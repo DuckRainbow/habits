@@ -20,11 +20,11 @@ class Habit(models.Model):
         help_text='Опишите место, отвечая на вопрос "где?"',
     )
 
-    time_where = models.DateTimeField(
+    time_when = models.DateTimeField(
         verbose_name='Время',
         blank=True,
         null=True,
-        help_text='Опишите место, отвечая на вопрос "когда?"',
+        help_text='Опишите время, отвечая на вопрос "когда?"',
     )
 
     action = models.CharField(
@@ -32,7 +32,7 @@ class Habit(models.Model):
         verbose_name='Действие',
         blank=True,
         null=True,
-        help_text='Опишите место, отвечая на вопрос "что буду делать?"',
+        help_text='Опишите действие, отвечая на вопрос "что буду делать?"',
     )
 
     is_pleasant = models.BooleanField(
@@ -79,7 +79,7 @@ class Habit(models.Model):
     )
 
     def __str__(self):
-        return f"Я буду {self.action} в {self.time_where} в {self.place}"
+        return f"Я буду {self.action} в {self.time_when} в {self.place}"
 
     class Meta:
         db_table = 'habit'

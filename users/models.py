@@ -20,8 +20,10 @@ class User(AbstractUser):
         blank=True,
         null=True,
     )
-    avatar = models.ImageField(
-        verbose_name='Avatar',
+    telegram_id = models.CharField(
+        max_length=100,
+        verbose_name="telegram_id",
+        help_text="Введите ID чата",
         blank=True,
         null=True,
     )
