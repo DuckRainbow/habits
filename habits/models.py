@@ -42,7 +42,7 @@ class Habit(models.Model):
     )
 
     related_habit = models.ForeignKey(
-        'Habit',
+        'self',
         verbose_name='Связанная привычка',
         blank=True,
         null=True,
@@ -50,10 +50,9 @@ class Habit(models.Model):
         help_text='Укажите связанную привычку(не указывать, если указали вознаграждение)',
     )
 
-    regularity = models.CharField(
-        max_length=50,
+    regularity = models.PositiveSmallIntegerField(
         verbose_name='Периодичность(1 раз в __ дней)',
-        default='1',
+        default=1,
         null=True,
     )
 

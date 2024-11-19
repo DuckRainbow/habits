@@ -1,7 +1,4 @@
 from celery import shared_task
-from django.core.mail import send_mail
-
-from config import settings
 from habits.models import Habit
 from users.models import User
 
@@ -16,12 +13,10 @@ def reminder_mail(user_id):
     current_time = datetime.datetime.now().strftime('%x %X')
 
     for habit in habits:
-        habit_time = datetime.datetime.strftime(habit.time_when,'%x %X')
+        habit_time = datetime.datetime.strftime(habit.time_when, '%x %X')
         if habit_time == current_time:
             message = f'Сейчас запланировано выполнение {habit.action} в {habit.place}. \nВремя на выполнение: {habit.time_to_complete}.\n'
             if habit.related_habit:
                 message += f'После выполнения можете наградить себя: {habit.related_habit}'
             else:
                 message += f'После выполнения можете наградить себя: {habit.reward}'
-
-

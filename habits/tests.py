@@ -1,5 +1,3 @@
-import datetime
-
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -15,7 +13,7 @@ class HabitTestCase(APITestCase):
         self.habit = Habit.objects.create(
             user=self.user,
             place='Test place',
-            time_when=datetime.datetime.now(),
+            time_when='2024-11-20T08:10:00Z',
             action='Test action',
             is_pleasant=False,
             regularity=7,
@@ -30,11 +28,12 @@ class HabitTestCase(APITestCase):
         url = reverse('habits:habits_create')
         data = {
             'user': self.user.pk,
-            'action': 'Тестовая привычка 2',
-            'is_pleasant': 'True',
+            'action': 'Test action',
+            'is_pleasant': False,
+            'regularity': 7,
+            'reward': 'Мороженое',
             'time_when': '2024-11-20T08:10:00Z',
-            'place': 'Дом',
-            'regularity': 1,
+            'place': 'Test place',
         }
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -62,8 +61,7 @@ class HabitTestCase(APITestCase):
                     'user': self.user.pk,
                     'regularity': 7,
                     'place': 'Test place',
-                    'time_when': datetime.datetime.now(),
-
+                    'time_when': '2024-11-20T08:10:00Z',
                 }
             ],
         }
