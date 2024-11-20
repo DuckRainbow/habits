@@ -9,7 +9,7 @@
 
 1. Клонируйте проект 
         
-        git clone git@github.com:Evgeny-1981/CW7_DRF.git
+        git clone git@github.com:
 2. Создайте виртуальное окружение
 
         python3 - m venv .venv
