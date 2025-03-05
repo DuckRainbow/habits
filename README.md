@@ -9,7 +9,7 @@
 
 1. Клонируйте проект 
         
-        git clone git@github.com:DuckRainbow/cw7
+        git clone git@github.com:DuckRainbow/habits
 2. Создайте виртуальное окружение
 
         python3 - m venv .venv
